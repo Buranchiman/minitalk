@@ -16,4 +16,10 @@
 # include "ultralibft.h"
 # include <signal.h>
 
+typedef struct s_charlist
+{
+	char                c;
+	struct s_charlist	*next;
+}					t_charlist;
+
 #endif

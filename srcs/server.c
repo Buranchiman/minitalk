@@ -12,10 +12,11 @@
 
 #include "minitalk.h"
 
-static char		g_tools[3] = {0};
-
 void receive1()
 {
+	char	*c;
+
+	c = ft_calloc(2, sizeof(char));
 	if (g_tools[0] == 0)
 		g_tools[0] = '0';
 	//ft_printf("entered 1\n");
@@ -53,19 +54,21 @@ void    show_pid()
     ft_putnbr_fd(pid, 1);
 }
 
+void	act(int sig, siginfo_t *info, NULL)
+{
+
+}
+
 int main()
 {
     show_pid();
     struct sigaction sa;
-    sa.sa_handler = receive1;
-	struct sigaction sb;
-    sb.sa_handler = receive0;
+    sa.sa_sigaction = act;
+	sa.sa_flags = SA_SIGINFO;
 
-	//printf("current bit is %c\n", g_tools[0]);
+	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
     while (1)
-	{
-        sigaction(SIGUSR1, &sa, NULL);
-		sigaction(SIGUSR2, &sb, NULL);
-	}
+		pause();
     return (0);
 }
