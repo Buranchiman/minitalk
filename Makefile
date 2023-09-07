@@ -7,6 +7,7 @@ CLIENTNAME = client
 
 PATH_SRCS	=	srcs/
 
+SERVS	+=	utils.c
 SERVS	+=	server.c
 
 CLIENT	+= client.c

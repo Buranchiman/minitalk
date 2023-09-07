@@ -22,4 +22,8 @@ typedef struct s_charlist
 	struct s_charlist	*next;
 }					t_charlist;
 
+int	ft_charlstsize(t_charlist *lst);
+void	clean_charlist(t_charlist *a);
+void	manage_charlist(t_charlist **msg, char	c);
+
 #endif

@@ -78,7 +78,6 @@ INCLUDE	= -Iincludes
 
 CFLAGS = -Wall -Werror -Wextra
 AR = ar rcs
-CC = clang
 
 #####################################RULES#####################################
 
